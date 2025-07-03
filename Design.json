@@ -1,0 +1,209 @@
+{
+  "Global": {
+    "colors": {
+      "backgroundPrimary": "#0b0b0b",
+      "backgroundSecondary": "#1c1c1e",
+      "textPrimary": "#ffffff",
+      "textSecondary": "#c0c0c0",
+      "buttonPrimaryBackground": "#ffffff",
+      "buttonPrimaryText": "#0b0b0b",
+      "buttonSecondaryBorder": "#ffffff",
+      "cardBackground": "#1c1c1e",
+      "divider": "#333333"
+    },
+    "typography": {
+      "fontFamily": "'Inter', sans-serif",
+      "fontWeights": {
+        "regular": 400,
+        "medium": 500,
+        "bold": 700
+      },
+      "fontSizes": {
+        "heading1": "48px",
+        "heading2": "32px",
+        "heading3": "24px",
+        "body": "16px",
+        "caption": "12px"
+      },
+      "lineHeights": {
+        "heading1": "56px",
+        "heading2": "40px",
+        "heading3": "32px",
+        "body": "24px",
+        "caption": "16px"
+      },
+      "letterSpacing": {
+        "normal": "0px",
+        "wide": "0.5px"
+      }
+    },
+    "spacing": {
+      "none": "0px",
+      "xs": "4px",
+      "sm": "8px",
+      "md": "16px",
+      "lg": "24px",
+      "xl": "32px",
+      "xxl": "48px"
+    },
+    "borders": {
+      "radiusSmall": "4px",
+      "radiusMedium": "8px",
+      "radiusLarge": "12px"
+    },
+    "shadows": {
+      "cardShadow": "0 2px 8px rgba(0, 0, 0, 0.5)"
+    },
+    "breakpoints": {
+      "sm": "640px",
+      "md": "768px",
+      "lg": "1024px",
+      "xl": "1280px"
+    }
+  },
+
+  "Components": {
+    "Navbar": {
+      "backgroundColor": "#0b0b0b",
+      "paddingY": "16px",
+      "paddingX": "32px",
+      "gap": "32px",
+      "logoFontSize": "20px",
+      "navLinkFontSize": "16px",
+      "navLinkColor": "#ffffff",
+      "navLinkHoverColor": "#c0c0c0",
+      "buttonPrimary": {
+        "backgroundColor": "#ffffff",
+        "textColor": "#0b0b0b",
+        "paddingY": "8px",
+        "paddingX": "16px",
+        "borderRadius": "8px",
+        "fontWeight": 500
+      },
+      "buttonSecondary": {
+        "backgroundColor": "transparent",
+        "borderColor": "#ffffff",
+        "textColor": "#ffffff",
+        "paddingY": "8px",
+        "paddingX": "16px",
+        "borderRadius": "8px",
+        "fontWeight": 500
+      },
+      "searchBox": {
+        "backgroundColor": "#1c1c1e",
+        "borderRadius": "8px",
+        "paddingY": "8px",
+        "paddingX": "12px",
+        "textColor": "#ffffff",
+        "placeholderColor": "#888888",
+        "fontSize": "16px"
+      }
+    },
+
+    "HeroBanner": {
+      "backgroundOverlay": "linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0,0,0,0))",
+      "paddingY": "64px",
+      "paddingX": "32px",
+      "headingFontSize": "48px",
+      "headingFontWeight": 700,
+      "textColor": "#ffffff",
+      "subTextFontSize": "18px",
+      "subTextColor": "#c0c0c0",
+      "buttonPrimary": {
+        "backgroundColor": "#ffffff",
+        "textColor": "#0b0b0b",
+        "paddingY": "12px",
+        "paddingX": "24px",
+        "borderRadius": "8px",
+        "fontWeight": 500
+      },
+      "buttonSecondary": {
+        "backgroundColor": "transparent",
+        "borderColor": "#ffffff",
+        "textColor": "#ffffff",
+        "paddingY": "12px",
+        "paddingX": "24px",
+        "borderRadius": "8px",
+        "fontWeight": 500
+      }
+    },
+
+    "SectionTitle": {
+      "fontSize": "24px",
+      "fontWeight": 700,
+      "color": "#ffffff",
+      "marginBottom": "16px"
+    },
+
+    "Card": {
+      "backgroundColor": "#1c1c1e",
+      "borderRadius": "8px",
+      "padding": "8px",
+      "shadow": "0 2px 8px rgba(0, 0, 0, 0.5)",
+      "titleFontSize": "16px",
+      "titleFontWeight": 500,
+      "titleColor": "#ffffff",
+      "subTitleFontSize": "12px",
+      "subTitleColor": "#c0c0c0",
+      "hoverEffect": {
+        "transform": "scale(1.05)",
+        "transition": "transform 0.3s ease"
+      }
+    },
+
+    "SpecialForYou": {
+      "layout": "flex",
+      "gap": "16px",
+      "overflowX": "scroll",
+      "paddingY": "16px"
+    },
+
+    "FeaturedCollections": {
+      "layout": "grid",
+      "columns": 3,
+      "gap": "24px",
+      "paddingY": "24px"
+    },
+
+    "TrendingNow": {
+      "layout": "grid",
+      "columns": 6,
+      "gap": "16px",
+      "paddingY": "24px"
+    },
+
+    "MostPopular": {
+      "layout": "grid",
+      "columns": 6,
+      "gap": "16px",
+      "paddingY": "24px"
+    },
+
+    "ShowMoreButton": {
+      "backgroundColor": "#ffffff",
+      "textColor": "#0b0b0b",
+      "fontSize": "16px",
+      "fontWeight": 500,
+      "paddingY": "12px",
+      "paddingX": "24px",
+      "borderRadius": "8px",
+      "hoverBackgroundColor": "#e0e0e0"
+    },
+
+    "Footer": {
+      "backgroundColor": "#0b0b0b",
+      "paddingY": "24px",
+      "paddingX": "32px",
+      "textColor": "#c0c0c0",
+      "linkColor": "#c0c0c0",
+      "linkHoverColor": "#ffffff",
+      "gap": "16px",
+      "socialIcons": {
+        "color": "#c0c0c0",
+        "hoverColor": "#ffffff",
+        "size": "24px",
+        "gap": "16px"
+      }
+    }
+  }
+}
