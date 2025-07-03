@@ -1,4 +1,5 @@
 export const searchAnime = async (query) => {
+<<<<<<< HEAD
     try {
         const res = await fetch(`https://api.jikan.moe/v4/anime?q=${encodeURIComponent(query)}`);
         if (!res.ok) throw new Error("Anime is not available");

@@ -55,5 +55,5 @@ export default function SearchBar({ onSearch }) {
                     </svg>
                </form>
           </div>
-     );
+     )
 }
