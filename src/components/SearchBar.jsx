@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { searchAnime } from '../services/jikan';
+import LoadingSpinner from './LoadingSpinner';
 
 export default function SearchBar({ onSearch }) {
      const [search, setSearch] = useState('');
@@ -10,13 +11,15 @@ export default function SearchBar({ onSearch }) {
           e.preventDefault();
           try {
                if (!search.trim()) {
-                    return setSearch('');
+                    setSearch('');
+                    return;
                } else {
                     setError(null);
                     setLoading(true);
                     const results = await searchAnime(search);
-                    onSearch(results)
-               } setSearch('');
+                    onSearch(results);
+                    setSearch('');
+               }
           } catch (err) {
                setError('Oops! Couldn’t fetch anime. Please try again.');
           } finally {
@@ -24,36 +27,93 @@ export default function SearchBar({ onSearch }) {
           }
      }
 
+     // Animation logic: show only icon, expand input on hover/focus
      return (
-          <div className="w-full flex justify-center mb-12 px-2 sm:px-4">
-               <form onSubmit={handleSearch} className="relative w-full group">
-                    <input
-                         type="text"
-                         placeholder="Search for anime..."
-                         value={search}
-                         onChange={(e) => setSearch(e.target.value)}
-                         className="w-full px-4 sm:px-6 py-3 sm:py-4 pl-12 sm:pl-14 pr-4 sm:pr-6 text-base sm:text-lg text-black bg-white/80 backdrop-blur-sm border-2
-                            border-purple-200/50 rounded-2xl sm:rounded-3xl shadow-lg transition-all duration-300 ease-in-out hover:bg-white
-                             hover:border-purple-300 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-purple-300/50
-                              focus:border-purple-400 placeholder-transparent hover:placeholder-gray-500"
-                    />
-                    {isLoading && <p>Loading...</p>}
-                    {hasError && <p>Error has maire jaan...</p>}
-                    <svg
-                         className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 sm:w-6 sm:h-6 text-purple-500"
-                         fill="none"
-                         stroke="currentColor"
-                         viewBox="0 0 24 24"
-                         xmlns="http://www.w3.org/2000/svg"
+          <form
+               onSubmit={handleSearch}
+               className="relative flex items-center w-fit"
+          >
+               <div
+                    className={`
+                         relative flex items-center
+                         transition-all duration-300
+                    `}
+               >
+                    {/* Animated container for icon + input */}
+                    <div
+                         className={`
+                              flex items-center
+                              bg-transparent
+                              border-2 border-purple-200/50
+                              rounded-full shadow-lg
+                              transition-all duration-300
+                              overflow-hidden
+                              group
+                              ${search.length > 0 ? 'w-64' : 'w-12'}
+                              hover:w-64 focus-within:w-64
+                         `}
+                         style={{ minWidth: 0 }}
                     >
-                         <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                         {/* Search icon inside bar */}
+                         <span
+                              className={`
+                                   flex items-center justify-center
+                                   transition-all duration-300
+                                   ml-2
+                                   ${search.length > 0 || document.activeElement === document.querySelector('input[type="text"]')
+                                        ? 'opacity-100'
+                                        : 'opacity-100'}
+                              `}
+                         >
+                              <svg
+                                   className="w-6 h-6 text-purple-500"
+                                   fill="none"
+                                   stroke="currentColor"
+                                   viewBox="0 0 24 24"
+                                   xmlns="http://www.w3.org/2000/svg"
+                              >
+                                   <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                                   />
+                              </svg>
+                         </span>
+                         {/* Animated input */}
+                         <input
+                              type="text"
+                              placeholder="Search for anime..."
+                              value={search}
+                              onChange={(e) => setSearch(e.target.value)}
+                              className={`
+                                   bg-transparent
+                                   text-white
+                                   pl-2 pr-4 py-3
+                                   w-0 opacity-0 pointer-events-none
+                                   transition-all duration-300
+                                   focus:outline-none
+                                   placeholder-transparent
+                                   ${search.length > 0 ? 'w-52 opacity-100 pointer-events-auto' : ''}
+                                   group-hover:w-52 group-hover:opacity-100 group-hover:pointer-events-auto
+                                   group-focus-within:w-52 group-focus-within:opacity-100 group-focus-within:pointer-events-auto
+                              `}
+                              style={{
+                                   minWidth: 0,
+                              }}
+                              onBlur={() => {
+                                   if (!search) setSearch('');
+                              }}
                          />
-                    </svg>
-               </form>
-          </div>
+                    </div>
+               </div>
+               <div className="flex-grow flex flex-col justify-center w-full py-8">
+                    {isLoading &&
+                         <div className="flex justify-center items-center h-60">
+                              <LoadingSpinner />
+                         </div>}
+                    {hasError && <p className="text-red-400">{hasError}</p>}
+               </div>
+          </form>
      )
 }

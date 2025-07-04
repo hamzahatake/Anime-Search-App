@@ -1,43 +1,49 @@
 export const searchAnime = async (query) => {
-<<<<<<< HEAD
     try {
-        const res = await fetch(`https://api.jikan.moe/v4/anime?q=${encodeURIComponent(query)}`);
+        const res = await fetch(
+            `https://api.jikan.moe/v4/anime?q=${encodeURIComponent(query)}`
+        );
         if (!res.ok) throw new Error("Anime is not available");
-        const title = await res.json();
-        return title.data;
+        const json = await res.json();
+        return json.data ?? null;
     } catch (err) {
-        alert('Oops! Couldn’t fetch anime. Please try again.')
+        alert("Oops! Couldn't fetch anime. Please try again.");
+        return null;
     }
-}
+};
 
 export const animeDetail = async (id) => {
-    const res = await fetch(`https://api.jikan.moe/v4/anime/${id}`);
-    if (!res.ok) throw new Error("Anime detail is not available");
-    const animeDetail = await res.json();
-    return animeDetail.data;
-}
+    try {
+        const res = await fetch(`https://api.jikan.moe/v4/anime/${id}`);
+        if (!res.ok) throw new Error("Anime detail is not available");
+        const json = await res.json();
+        return json.data ?? null;
+    } catch (err) {
+        alert("Oops! Couldn't fetch anime details. Please try again.");
+        return null;
+    }
+};
 
 export const animeCharacters = async (id) => {
-    const res = await fetch(`https://api.jikan.moe/v4/anime/${id}/characters`);
-    if (!res.ok) throw new Error("Character data is not available");
-    const characters = await res.json();
-    return characters.data;
-}
+    try {
+        const res = await fetch(`https://api.jikan.moe/v4/anime/${id}/characters`);
+        if (!res.ok) throw new Error("Character data is not available");
+        const json = await res.json();
+        return json.data ?? null;
+    } catch (err) {
+        alert("Oops! Couldn't fetch anime characters. Please try again.");
+        return null;
+    }
+};
 
-export const animeEpisodes = async (id) => {
-    const res = await fetch(`https://api.jikan.moe/v4/anime/${id}/episodes`);
-    if (!res.ok) throw new Error('Episodes unavailable');
-    const episodes = await res.json();
-    return episodes.data;
-}
-
-export const animeTop = async (id) => {
+export const animeTop = async () => {
     try {
         const res = await fetch(`https://api.jikan.moe/v4/top/anime`);
-        if (!res.ok) throw new Error('Recommendations are not available');
-        const topAnime = await res.json();
-        return topAnime.data;
+        if (!res.ok) throw new Error("Recommendations are not available");
+        const json = await res.json();
+        return json.data ?? null;
     } catch (err) {
-        alert("Oops, no recommendations available.")
+        alert("Oops, no recommendations available.");
+        return null;
     }
-}
+};
