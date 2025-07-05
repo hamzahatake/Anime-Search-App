@@ -1,16 +1,27 @@
-<<<<<<< HEAD
-# React + Vite
+## What I Learned
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Through building this Anime Search app, I learned:
 
-Currently, two official plugins are available:
+* **Integrating Third-Party APIs:**
+  How to fetch data from the Jikan API and work with dynamic API responses in JSON format.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* **Handling Search Functionality:**
+  Managing controlled input fields, handling form submissions, and preventing unwanted page reloads on submit.
 
-## Expanding the ESLint configuration
+* **State Management in React:**
+  Storing and updating API results in state and using that state to render components dynamically.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-🚧 This project is currently under development and incomplete.
->>>>>>> 3694f037c4dfdeed9db721e594b00276c124a3be
+* **Component Reusability:**
+  Creating reusable UI components (Navbar, Searchbar, Card) and passing props to display dynamic content.
+
+* **Routing with React Router:**
+  Setting up routes for navigation between pages, including dynamic routes for detail views.
+
+* **Dynamic Route Parameters:**
+  Using URL parameters to fetch and display details for specific anime titles.
+
+* **Responsive UI Design with Tailwind CSS:**
+  Building clean and responsive layouts using utility classes.
+
+* **Loading and Error Handling:**
+  Managing UI feedback for loading states and handling empty or error scenarios during API calls.
