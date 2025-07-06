@@ -73,7 +73,7 @@ export default function Home() {
                         <LoadingSpinner />
                     </div>
                 ) : (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-center mx-auto w-fit px-4 mt-50">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-center mx-auto w-full px-4 mt-50">
                         {searchResults.length > 0
                             ? searchResults.slice(0, 20).map((result) => (
                                 <Link
@@ -93,7 +93,7 @@ export default function Home() {
                             ))
                             : topAnime.slice(0, 20).map((top) => (
                                 <Link
-                                    to={`/anime/${top.mal_id}`}
+                                to={`/anime/${top.mal_id}`}
                                     key={top.mal_id}
                                 >
                                     <AnimeCard
@@ -120,6 +120,6 @@ export default function Home() {
             </div>
 
             <Footer />
-        </div>
+        </div >
     );
 }
